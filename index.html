@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare Institute - Hospital Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top HUD / Status Bar -->
+    <header class="top-hud">
+        <div class="hud-item">🏥 Medicare Institute</div>
+        <div class="hud-item">🕒 <span id="time-display">Day 1 - 08:00 AM</span></div>
+        <div class="hud-item">💰 <span id="money-display">₦2,500,000</span></div>
+        <div class="hud-item">⭐ <span id="reputation-display">3.5 / 5.0</span></div>
+        <div class="hud-item">⚡ Grid: <span id="power-display" class="status-green">Stable</span></div>
+    </header>
+
+    <!-- Main Game Workspace -->
+    <main class="game-container">
+        <!-- Hospital Floor Plan Viewport -->
+        <section class="floor-viewport">
+            <h2>🏥 Hospital Floor Plan</h2>
+            <div class="rooms-grid">
+                <div class="room-card" onclick="openRoom('reception')">
+                    <h3>Front Desk / Reception</h3>
+                    <p>Queue: <span id="q-reception">3</span> patients</p>
+                    <span class="badge badge-admin">Corporate</span>
+                </div>
+                <div class="room-card" onclick="openRoom('consultation')">
+                    <h3>Consultation Rooms</h3>
+                    <p>Active Doctors: <span id="doc-count">2</span></p>
+                    <span class="badge badge-doctor">Navy Blue</span>
+                </div>
+                <div class="room-card" onclick="openRoom('lab')">
+                    <h3>Pathology Lab</h3>
+                    <p>Status: Ready for Analysis</p>
+                    <span class="badge badge-lab">Forest Green</span>
+                </div>
+                <div class="room-card" onclick="openRoom('ae')">
+                    <h3>Accident & Emergency</h3>
+                    <p>Critical Cases: <span id="ae-count">1</span></p>
+                    <span class="badge badge-nurse">Teal</span>
+                </div>
+                <div class="room-card" onclick="openRoom('pharmacy')">
+                    <h3>Pharmacy</h3>
+                    <p>Stock: <span id="pharma-stock">85</span>%</p>
+                    <span class="badge badge-pharmacy">Burgundy</span>
+                </div>
+                <div class="room-card" onclick="openRoom('sanitation')">
+                    <h3>Sanitation Hub</h3>
+                    <p>Cleanliness: <span id="cleanliness-score">92</span>%</p>
+                    <span class="badge badge-cleaner">Yellow</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspector & Action Panel -->
+        <section class="inspector-panel">
+            <h2>📋 Department & Staff Roster</h2>
+            <div id="inspector-content">
+                <p>Tap any department above or hire staff below to manage your hospital operations.</p>
+            </div>
+            <div class="action-buttons">
+                <button onclick="hireStaff('doctor')" class="btn-primary">Hire Doctor (₦500k)</button>
+                <button onclick="hireStaff('nurse')" class="btn-primary">Hire Nurse (₦300k)</button>
+                <button onclick="hireStaff('cleaner')" class="btn-primary">Hire Cleaner (₦150k)</button>
+                <button onclick="triggerMiniGame('microscope')" class="btn-secondary">🔬 Run Lab Test</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dynamic Event Modal Popup -->
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="event-title">Event Title</h3>
+            <p id="event-desc">Event description goes here...</p>
+            <div id="event-actions" class="modal-buttons">
+                <!-- Dynamically injected choices -->
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
