@@ -1,0 +1,124 @@
+:root {
+    --bg-main: #f4f6f7;
+    --panel-bg: #ffffff;
+    --text-main: #2c3e50;
+    --doctor-navy: #000080;
+    --nurse-teal: #008080;
+    --pharmacy-burgundy: #800020;
+    --lab-green: #228b22;
+    --cleaner-yellow: #ffd700;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+.top-hud {
+    display: flex;
+    flex-wrap: wrap;
+    background: #0f172a;
+    color: white;
+    padding: 10px 15px;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-green { color: #4ade80; }
+.status-red { color: #f87171; }
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+}
+
+@media(min-width: 768px) {
+    .game-container { flex-direction: row; }
+    .floor-viewport { flex: 2; }
+    .inspector-panel { flex: 1; }
+}
+
+.floor-viewport, .inspector-panel {
+    background: var(--panel-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.room-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.room-card:active { transform: scale(0.98); }
+.room-card h3 { font-size: 13px; margin: 0 0 5px 0; }
+.room-card p { font-size: 11px; color: #64748b; margin: 0 0 8px 0; }
+
+/* Department Scrub Badges */
+.badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; color: white; display: inline-block; }
+.badge-admin { background: #475569; }
+.badge-doctor { background: var(--doctor-navy); }
+.badge-nurse { background: var(--nurse-teal); }
+.badge-pharmacy { background: var(--pharmacy-burgundy); }
+.badge-lab { background: var(--lab-green); }
+.badge-cleaner { background: #b45309; color: var(--cleaner-yellow); }
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary { background: #0284c7; color: white; }
+.btn-secondary { background: #0d9488; color: white; }
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden { display: none; }
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 400px;
+}
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
